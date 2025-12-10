@@ -1,0 +1,16 @@
+const express = require('express')
+const app = express()
+const PORT = 3000
+
+const movieRouter = require('./routes/movies')
+
+
+app.get('/', (req, resp) => {
+    resp.send(`server respond at port ${PORT}`)
+})
+
+app.use('/api/movies', movieRouter)
+
+app.listen(PORT, () => {
+    console.log('server is running')
+})
